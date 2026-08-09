@@ -1,0 +1,78 @@
+[project]
+name = "projects-plli"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Haneul Cho",email = "stuykr@naver.com"}
+]
+license = "MIT"
+requires-python = ">=3.14"
+dependencies = [
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[dependency-groups]
+dev = [
+    "ruff (>=0.16.1,<0.17.0)",
+    "mypy (>=2.3.0,<3.0.0)"
+]
+
+# ==========================================
+# 1. Ruff 설정 (Lint + Format + Import Sort)
+# ==========================================
+[tool.ruff]
+target-version = "py312"
+line-length = 88
+exclude = [
+    ".git",
+    ".venv",
+    "__pycache__",
+    "build",
+    "dist",
+]
+
+[tool.ruff.lint]
+select = [
+    "E",
+    "F",
+    "I",
+    "B",
+    "SIM",
+    "UP"
+]
+
+ignore = [
+    "E501",
+]
+
+fixable = ["ALL"]
+unfixable = []
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**/*.py" = ["S101"]
+
+[tool.ruff.lint.isort]
+combine-as-imports = true
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+
+
+# ==========================================
+# 2. Mypy 설정 (정적 타입 검사)
+# ==========================================
+[tool.mypy]
+python_version = "3.12"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+check_untyped_defs = true
+ignore_missing_imports = true
+incremental = true
