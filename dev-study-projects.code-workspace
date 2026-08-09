@@ -1,0 +1,29 @@
+{
+  "folders": [
+    {
+      "name": "📦 Projects Plli",
+      "path": "examples/projects-plli"
+    }
+    // {
+    //   "name": "📁 Root (Docs & Configs)",
+    //   "path": "docs"
+    // }
+  ],
+  "settings": {
+    "python-envs.defaultEnvManager": "ms-python.python:pyenv",
+    "python.terminal.activateEnvironment": true,
+    "[python]": {
+      "editor.defaultFormatter": "charliermarsh.ruff",
+      "editor.formatOnSave": true,
+      "editor.codeActionsOnSave": {
+        "source.fixAll": "explicit",
+        "source.organizeImports": "explicit"
+      }
+    },
+    "ruff.format.preview": true,
+    "[markdown]": {
+      "editor.formatOnSave": true,
+      "editor.defaultFormatter": "charliermarsh.ruff"
+    }
+  }
+}
