@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.projects-plli/asterum/labels.schema.json",
+  "title": "Asterum OCR dataset labels",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "mapping_version", "samples"],
+  "properties": {
+    "version": { "type": "string", "minLength": 1 },
+    "mapping_version": { "type": "string", "minLength": 1 },
+    "samples": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/sample" }
+    }
+  },
+  "$defs": {
+    "sample": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id", "file", "input_style", "source_id", "group_id", "split",
+        "tokens", "width", "height", "sha256", "license_id"
+      ],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9_]+$" },
+        "file": { "type": "string", "minLength": 1 },
+        "input_style": { "enum": ["printed", "handwriting", "synthetic"] },
+        "source_id": { "type": "string", "pattern": "^[a-z0-9_]+$" },
+        "group_id": { "type": "string", "pattern": "^[a-z0-9_]+$" },
+        "writer_id": { "type": ["string", "null"], "pattern": "^[a-z0-9_]+$" },
+        "capture_session_id": {
+          "type": ["string", "null"],
+          "pattern": "^[a-z0-9_]+$"
+        },
+        "split": { "enum": ["unassigned", "train", "validation", "test"] },
+        "tokens": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["glyph_id"],
+            "properties": {
+              "glyph_id": { "type": "string", "pattern": "^ast_[a-z0-9_]+$" }
+            }
+          }
+        },
+        "width": { "type": "integer", "minimum": 1 },
+        "height": { "type": "integer", "minimum": 1 },
+        "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+        "license_id": { "type": "string", "pattern": "^[a-z0-9_.-]+$" }
+      }
+    }
+  }
+}

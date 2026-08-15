@@ -1,0 +1,3 @@
+﻿sample_id,file,glyph_sequence,expected_ko,source_group,input_style,license_id,notes
+example_sample001,sample001.png,ㄱ ㅑ ㅇ ㅗ ㅐ,갸왜,paper01-session01,printed,user_created_training_allowed_v1,예시 행 - 실제 값으로 교체
+example_sample002,sample002.png,ㅎ ㅏ ㄴ ㄱ ㅡ ㄹ,한글,paper01-session01,printed,user_created_training_allowed_v1,예시 행 - 실제 값으로 교체

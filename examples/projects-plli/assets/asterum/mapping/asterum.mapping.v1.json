@@ -1,0 +1,201 @@
+{
+  "version": "1.0.0",
+  "characters": [
+    {
+      "glyph_id": "ast_giyeok",
+      "source_svg": "../characters/svg/ㄱ.svg",
+      "ko_jamo": "ㄱ",
+      "kind": "consonant",
+      "sha256": "5ac8d6a6af8f443de79606f749d17c617591ea10d42a16b691a6a5d5db11476d"
+    },
+    {
+      "glyph_id": "ast_nieun",
+      "source_svg": "../characters/svg/ㄴ.svg",
+      "ko_jamo": "ㄴ",
+      "kind": "consonant",
+      "sha256": "736e7497f18bb67cb4cc23eac83c12c0f802ee2d7c55f1af29d3709f69a13e3b"
+    },
+    {
+      "glyph_id": "ast_digeut",
+      "source_svg": "../characters/svg/ㄷ.svg",
+      "ko_jamo": "ㄷ",
+      "kind": "consonant",
+      "sha256": "f034b1b4ed05b880526fd5911e3f0cab1f059e809f45d0c9810a71c36fe257a0"
+    },
+    {
+      "glyph_id": "ast_rieul",
+      "source_svg": "../characters/svg/ㄹ.svg",
+      "ko_jamo": "ㄹ",
+      "kind": "consonant",
+      "sha256": "9d464dfa1f408730fe71967447baff5d7c339c9e198777162bc431254e3126cf"
+    },
+    {
+      "glyph_id": "ast_mieum",
+      "source_svg": "../characters/svg/ㅁ.svg",
+      "ko_jamo": "ㅁ",
+      "kind": "consonant",
+      "sha256": "1091fd4e0f5486efcc5b1ddc6c4dc35ec902636251ca5c9a2b20dd2f8eced0a2"
+    },
+    {
+      "glyph_id": "ast_bieup",
+      "source_svg": "../characters/svg/ㅂ.svg",
+      "ko_jamo": "ㅂ",
+      "kind": "consonant",
+      "sha256": "f018af9004ffb16a9efbebdb91b81da8d48d3773b3aaa8e9e3de1d3e40d04156"
+    },
+    {
+      "glyph_id": "ast_siot",
+      "source_svg": "../characters/svg/ㅅ.svg",
+      "ko_jamo": "ㅅ",
+      "kind": "consonant",
+      "sha256": "dc219525a7af5c3c7f905ce4bad23481c7368ca2142070ca59db8f61006b5089"
+    },
+    {
+      "glyph_id": "ast_ieung",
+      "source_svg": "../characters/svg/ㅇ.svg",
+      "ko_jamo": "ㅇ",
+      "kind": "consonant",
+      "sha256": "02a438ab6aa01a954254f98e2fe76b285c302874e67eb3dd50e259f29dec5324"
+    },
+    {
+      "glyph_id": "ast_jieut",
+      "source_svg": "../characters/svg/ㅈ.svg",
+      "ko_jamo": "ㅈ",
+      "kind": "consonant",
+      "sha256": "d7a780a9050e78bda48fd964ac042110c3eff9cf6aeb351c62e93eb3ed23942e"
+    },
+    {
+      "glyph_id": "ast_chieut",
+      "source_svg": "../characters/svg/ㅊ.svg",
+      "ko_jamo": "ㅊ",
+      "kind": "consonant",
+      "sha256": "43b07e8febbe4a95041ae5cc0e26396d6a27d4c316aa0068eae12616833a6f01"
+    },
+    {
+      "glyph_id": "ast_kieuk",
+      "source_svg": "../characters/svg/ㅋ.svg",
+      "ko_jamo": "ㅋ",
+      "kind": "consonant",
+      "sha256": "a114778cebbea57bc38a6c326a2732fd34da43ec59f9a2e0408c4d0d9d7d1408"
+    },
+    {
+      "glyph_id": "ast_tieut",
+      "source_svg": "../characters/svg/ㅌ.svg",
+      "ko_jamo": "ㅌ",
+      "kind": "consonant",
+      "sha256": "15f516f407043658d4bdee6d5de657ac6a1dcc31e8dc433a4953102e7e515982"
+    },
+    {
+      "glyph_id": "ast_pieup",
+      "source_svg": "../characters/svg/ㅍ.svg",
+      "ko_jamo": "ㅍ",
+      "kind": "consonant",
+      "sha256": "b3d3bfedb134b09342130bdbe22f22e3e75b7e6b26632f4f4907e709520cac67"
+    },
+    {
+      "glyph_id": "ast_hieut",
+      "source_svg": "../characters/svg/ㅎ.svg",
+      "ko_jamo": "ㅎ",
+      "kind": "consonant",
+      "sha256": "410e50715fedc16e9350145d70daf380c7ae3f921aff04cb8e2e0910d4dea3f3"
+    },
+    {
+      "glyph_id": "ast_a",
+      "source_svg": "../characters/svg/ㅏ.svg",
+      "ko_jamo": "ㅏ",
+      "kind": "vowel",
+      "sha256": "97b85734e3caf7545fd13db18b67f0ceec4410eec7ed69874c63f552d649c110"
+    },
+    {
+      "glyph_id": "ast_ae",
+      "source_svg": "../characters/svg/ㅐ.svg",
+      "ko_jamo": "ㅐ",
+      "kind": "vowel",
+      "sha256": "317714a20018abdc0d75c6c481c64945d9d7bb0cc754c7619b614406099d9908"
+    },
+    {
+      "glyph_id": "ast_ya",
+      "source_svg": "../characters/svg/ㅑ.svg",
+      "ko_jamo": "ㅑ",
+      "kind": "vowel",
+      "sha256": "66cbb0e47275b63bf5aa139d8d00e1654ae08424854289b763b99a069338a923"
+    },
+    {
+      "glyph_id": "ast_yae",
+      "source_svg": "../characters/svg/ㅒ.svg",
+      "ko_jamo": "ㅒ",
+      "kind": "vowel",
+      "sha256": "6888e83f61cfa828484ac6efab0c71e24338b5796ce6e785a7a27c554c985c02"
+    },
+    {
+      "glyph_id": "ast_eo",
+      "source_svg": "../characters/svg/ㅓ.svg",
+      "ko_jamo": "ㅓ",
+      "kind": "vowel",
+      "sha256": "8f32083abef3979e2fd13ecf44812aa564582b61376280b37bf9622accf01614"
+    },
+    {
+      "glyph_id": "ast_e",
+      "source_svg": "../characters/svg/ㅔ.svg",
+      "ko_jamo": "ㅔ",
+      "kind": "vowel",
+      "sha256": "2100b137b57137574041be941abed56e7c1a29be0a2a3ebce2589582674dc205"
+    },
+    {
+      "glyph_id": "ast_yeo",
+      "source_svg": "../characters/svg/ㅕ.svg",
+      "ko_jamo": "ㅕ",
+      "kind": "vowel",
+      "sha256": "1ab3a46429af1015143b9380918619e41a595aa85928db3ed894e55717a62561"
+    },
+    {
+      "glyph_id": "ast_ye",
+      "source_svg": "../characters/svg/ㅖ.svg",
+      "ko_jamo": "ㅖ",
+      "kind": "vowel",
+      "sha256": "2cf9ec6d650d7526a44dbb7ef1268cc3840146f8f263e608bc720a51757fec35"
+    },
+    {
+      "glyph_id": "ast_o",
+      "source_svg": "../characters/svg/ㅗ.svg",
+      "ko_jamo": "ㅗ",
+      "kind": "vowel",
+      "sha256": "88d3c5a165b40d63e0ad6ec32d006dcd043df69153efb2daf3b47675ad438985"
+    },
+    {
+      "glyph_id": "ast_yo",
+      "source_svg": "../characters/svg/ㅛ.svg",
+      "ko_jamo": "ㅛ",
+      "kind": "vowel",
+      "sha256": "8bcfa04e81bff36f0c94139e8e0e9b6b0bf38d54af2d744bc63e922142512093"
+    },
+    {
+      "glyph_id": "ast_u",
+      "source_svg": "../characters/svg/ㅜ.svg",
+      "ko_jamo": "ㅜ",
+      "kind": "vowel",
+      "sha256": "0f8828121aac14ba3ab080a6d74655c21cce0bd59be8f8e398e66a0a33c6d17a"
+    },
+    {
+      "glyph_id": "ast_yu",
+      "source_svg": "../characters/svg/ㅠ.svg",
+      "ko_jamo": "ㅠ",
+      "kind": "vowel",
+      "sha256": "d8fe37a1a29cc2bd799c5af0799109bff778dc69bd8aeef275788aa7c2df73c3"
+    },
+    {
+      "glyph_id": "ast_eu",
+      "source_svg": "../characters/svg/ㅡ.svg",
+      "ko_jamo": "ㅡ",
+      "kind": "vowel",
+      "sha256": "8be141861680ae83d583598a92c799345050f4401544831d8aa0cf2f8de7e1e5"
+    },
+    {
+      "glyph_id": "ast_i",
+      "source_svg": "../characters/svg/ㅣ.svg",
+      "ko_jamo": "ㅣ",
+      "kind": "vowel",
+      "sha256": "ab2d4f9e8608f26019058008d2e44a229de7a0fa9e63cf1309f2b285ccd937dd"
+    }
+  ]
+}

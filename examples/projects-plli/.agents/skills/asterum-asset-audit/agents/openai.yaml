@@ -1,0 +1,4 @@
+interface:
+  display_name: "Asterum Asset Audit"
+  short_description: "아스테룸 SVG와 매핑 파일의 무결성을 안전하게 검증"
+  default_prompt: "Use $asterum-asset-audit to validate the Asterum SVG assets and mapping before continuing."

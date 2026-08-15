@@ -1,78 +1,85 @@
 [project]
 name = "projects-plli"
 version = "0.1.0"
-description = ""
+description = "Asterum glyph OCR and deterministic Korean composition practice project"
 authors = [
-    {name = "Haneul Cho",email = "stuykr@naver.com"}
+    { name = "Haneul Cho", email = "stuykr@naver.com" },
 ]
 license = "MIT"
-requires-python = ">=3.14"
+readme = "README.md"
+requires-python = "==3.14.7"
 dependencies = [
+    "defusedxml>=0.7.1",
+    "fastapi>=0.141.1",
+    "numpy>=2.5.2",
+    "opencv-python-headless>=5.0.0.93",
+    "pillow>=12.3.0",
+    "pillow-heif>=1.5.0",
+    "pydantic>=2.13.4",
+    "python-multipart>=0.0.32",
+    "torch>=2.13.0",
+    "uvicorn[standard]>=0.52.3",
 ]
 
+[project.scripts]
+asterum-api = "asterum.api.main:run"
+asterum-asset-audit = "asterum.data.asset_audit:main"
+asterum-import-characters = "asterum.data.import_characters:main"
 
 [build-system]
-requires = ["poetry-core>=2.0.0,<3.0.0"]
-build-backend = "poetry.core.masonry.api"
+requires = ["uv_build>=0.12.5,<0.13"]
+build-backend = "uv_build"
 
 [dependency-groups]
 dev = [
-    "ruff (>=0.16.1,<0.17.0)",
-    "mypy (>=2.3.0,<3.0.0)"
+    "httpx2>=2.10.0",
+    "mypy>=2.3.1",
+    "pytest>=9.1.1",
+    "pytest-cov>=7.1.0",
+    "ruff>=0.16.3",
+    "types-defusedxml>=0.7.0.20260504",
 ]
 
-# ==========================================
-# 1. Ruff 설정 (Lint + Format + Import Sort)
-# ==========================================
+[tool.uv.build-backend]
+module-name = "asterum"
+module-root = "backend/src"
+
 [tool.ruff]
-target-version = "py312"
-line-length = 88
+target-version = "py314"
+line-length = 100
 exclude = [
     ".git",
     ".venv",
-    "__pycache__",
-    "build",
-    "dist",
+    "frontend/node_modules",
+    "frontend/dist",
 ]
 
 [tool.ruff.lint]
-select = [
-    "E",
-    "F",
-    "I",
-    "B",
-    "SIM",
-    "UP"
-]
-
-ignore = [
-    "E501",
-]
-
-fixable = ["ALL"]
-unfixable = []
+select = ["E", "F", "I", "B", "SIM", "UP", "ARG", "S"]
+ignore = ["E501"]
 
 [tool.ruff.lint.per-file-ignores]
-"tests/**/*.py" = ["S101"]
-
-[tool.ruff.lint.isort]
-combine-as-imports = true
+"backend/tests/**/*.py" = ["S101"]
 
 [tool.ruff.format]
 quote-style = "double"
 indent-style = "space"
-skip-magic-trailing-comma = false
 line-ending = "auto"
 
-
-# ==========================================
-# 2. Mypy 설정 (정적 타입 검사)
-# ==========================================
 [tool.mypy]
-python_version = "3.12"
-warn_return_any = true
+python_version = "3.14"
+strict = true
 warn_unused_configs = true
-disallow_untyped_defs = true
-check_untyped_defs = true
-ignore_missing_imports = true
-incremental = true
+files = ["backend/src", "backend/tests"]
+
+[tool.pytest.ini_options]
+testpaths = ["backend/tests"]
+addopts = "--strict-config --strict-markers"
+
+[tool.coverage.run]
+source = ["asterum"]
+branch = true
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = true
