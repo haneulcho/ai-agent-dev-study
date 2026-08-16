@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import argparse
-import hashlib
 import json
 from pathlib import Path
 
@@ -10,6 +9,7 @@ from defusedxml.common import DefusedXmlException
 from pydantic import BaseModel, ConfigDict, Field, ValidationError
 
 from asterum.data.characters import EXPECTED_JAMO
+from asterum.data.files import sha256_file
 from asterum.domain.mapping import load_mapping
 
 
@@ -32,14 +32,6 @@ class AssetAuditReport(BaseModel):
     @property
     def ok(self) -> bool:
         return not self.issues
-
-
-def sha256_file(path: Path) -> str:
-    digest = hashlib.sha256()
-    with path.open("rb") as file:
-        for chunk in iter(lambda: file.read(1024 * 1024), b""):
-            digest.update(chunk)
-    return digest.hexdigest()
 
 
 def _local_name(tag: str) -> str:

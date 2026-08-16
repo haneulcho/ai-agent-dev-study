@@ -1,0 +1,4 @@
+interface:
+  display_name: "Asterum Dataset Prepare"
+  short_description: "아스테룸 이미지 crop과 OCR 전처리를 안전하게 반복 실행"
+  default_prompt: "Use $asterum-prepare-dataset to crop and preprocess Asterum training images without overwriting originals."

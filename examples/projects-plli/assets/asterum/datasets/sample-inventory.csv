@@ -1,0 +1,52 @@
+﻿sample_id,relative_file,source_filename,classification,source_group,annotation_status,training_ready,glyph_sequence,expected_ko,width_px,height_px,sha256,license_id,notes
+prt_src0001_img000001,datasets/printed/raw/images/prt_src0001_img000001.webp,fELrCB.webp,printed,digital-phrase-01,transcribed_pending_review,false,ㅁ ㅗ ㄷ ㅡ ㄴ ㄱ ㅓ ㅅ ㅇ ㅡ ㄴ ㅋ ㅏ ㅇ ㅔ ㄹ ㄹ ㅜ ㅁ ㅇ ㅡ ㅣ ㄷ ㄷ ㅡ ㅅ ㄷ ㅐ ㄹ ㅗ,모든 것은 카엘룸의 뜻대로,884,477,785d39602267da09d071019db451139e112f75310321c8b1ffa1559e8d474523,user_confirmed_training_allowed,대응표로 4행을 전사함. 된소리 '뜻'은 원문 글리프대로 ㄷ ㄷ을 연속 기록했으며 최종 정답 확인이 필요함. 사용자가 OCR 학습 사용을 허용함
+prt_src0002_img000002,datasets/printed/raw/images/prt_src0002_img000002.jpeg,G_LhqnFWMAARAxn.jpeg,printed,quiz-sheet-01,transcribed_confirmed,true,ㄱ ㅣ ㄷ ㅏ ㄹ ㅣ ㄹ ㄱ ㅔ,기다릴게,2048,1536,79361718aac832712561f9b7d1bdf5563525073aee0d057591e00d7b4ad3762a,user_confirmed_training_allowed,사용자가 정답을 '기다릴게'로 확인했고 OCR 학습 사용을 허용함
+prt_src0003_img000003,datasets/printed/raw/images/prt_src0003_img000003.jpeg,KakaoTalk_Image_2026-08-15-20-12-32_002.jpeg,printed,digital-phrase-02,transcribed_pending_review,false,ㅁ ㅗ ㄷ ㅡ ㄴ ㄱ ㅓ ㅅ ㅇ ㅡ ㄴ ㅋ ㅏ ㅇ ㅔ ㄹ ㄹ ㅜ ㅁ ㅇ ㅡ ㅣ ㄷ ㄷ ㅡ ㅅ ㄷ ㅐ ㄹ ㅗ,모든 것은 카엘룸의 뜻대로,1480,1080,1475bf1ffe6ba4050ed0ec7a4dae9ca794c8c5e69e213f9f17fe29e1ec5df33c,user_confirmed_training_allowed,2행 문장을 대응표로 전사함. prt_src0001과 같은 문장으로 판독했으며 최종 정답 확인이 필요함
+prt_src0004_img000004,datasets/printed/raw/images/prt_src0004_img000004.jpeg,KakaoTalk_Image_2026-08-15-20-12-41_001.jpeg,printed,printed-label-01,transcribed_pending_review,false,ㅁ ㅗ ㄷ ㅡ ㄴ ㄱ ㅓ ㅅ ㅇ ㅡ ㄴ ㅋ ㅏ ㅇ ㅔ ㄹ ㄹ ㅜ ㅁ ㅇ ㅡ ㅣ ㄷ ㄷ ㅡ ㅅ ㄷ ㅐ ㄹ ㅗ,모든 것은 카엘룸의 뜻대로,943,367,f2ccd713b5e3546ca24157e187c693a8f06b993a0c0333794891df0f23ad0de0,user_confirmed_training_allowed,prt_src0001과 같은 문장으로 판독함. 사용자가 OCR 학습 사용을 허용했으며 외부 공개·재배포는 별도 검토함
+prt_src0005_img000005,datasets/printed/raw/images/prt_src0005_img000005.jpeg,KakaoTalk_Image_2026-08-15-20-12-41_002.jpeg,printed,printed-page-01,analyzed_review_required,false,,,1600,1886,0fa172f35292d6bc786b280ca608dbb7523967bd1191d6180968e80b3ecee54f,user_confirmed_training_allowed,장문·라틴 문자·문장부호 혼합 자료. 상단에서 '그들은 스타시드들로부터 생명을 얻어 테라와 아스테룸 사이의 균열을 오가며 활동했어요. 그 과정에서 아낌없이 플레이브를 사랑해주는 PLLI라는 소중한 존재도 만나게 되었지요.' 후보를 판독했으나 전체 이미지 정답이 아니므로 행별 crop과 원문 대조가 필요함
+prt_src0006_img000006,datasets/printed/raw/images/prt_src0006_img000006.jpeg,KakaoTalk_Image_2026-08-15-20-12-47_002.jpeg,printed,digital-capture-01,analyzed_review_required,false,,,1080,354,dc77b569a7f22f4eba8a83d82ffaba924b74da816318b74f1f3c0c14f00df527,user_confirmed_training_allowed,아스테룸어 2행 중 둘째 행은 '모든 것은 카엘룸의 뜻대로'와 일치함. 첫째 행 정답이 남아 있어 전체 전사는 확정하지 않음
+prt_src0007_img000007,datasets/printed/raw/images/prt_src0007_img000007.jpeg,KakaoTalk_Image_2026-08-15-20-12-47_003.jpeg,printed,digital-capture-02,transcribed_pending_review,false,"ㄱ ㅡ ㄴ ㄷ ㅔ ㅇ ㅣ ㄱ ㅓ ㅈ ㅣ ㄴ ㅈ ㅈ ㅏ
+ㄱ ㅣ ㅂ ㅗ ㄴ ㅁ ㅏ ㄴ ㄴ ㅓ ㅎ ㅇ ㅓ ㄴ ㅗ ㅏ ㅅ ㅓ
+ㅌ ㅏ ㅈ ㅏ ㅊ ㅣ ㄱ ㅣ
+ㅇ ㅓ ㅁ ㅊ ㅓ ㅇ ㅂ ㅜ ㄹ ㅍ ㅕ ㄴ ㅎ ㅏ ㅂ ㄴ ㅣ ㄷ ㅏ","근데 이거 진짜
+기본만 넣어놔서
+타자치기
+엄청 불편합니다",1200,698,426a42449bdbcdbe464d6c0f80b0d7dacfe144131f1dc83c459ec951ba38f567,user_confirmed_training_allowed,"4행을 대응표로 전사함. 붙어 있는 ㄱ+ㅓ, ㅈ+ㅈ, ㅗ+ㅏ는 개별 자모 token으로 분리했으며 최종 정답 확인이 필요함"
+prt_src0008_img000008,datasets/printed/raw/images/prt_src0008_img000008.png,KakaoTalk_Image_2026-08-15-20-12-33_004.jpeg#left-page,printed,diary-session-03-printed-reference,review_required,false,,,1024,1439,52074311e27bbcbe252289c9d09772789f504e836c6714e39efeb2f172c47074,user_confirmed_training_allowed,혼합 원본의 왼쪽 인쇄 페이지를 무손실 PNG로 분리함. 단어 예시별 crop과 전사가 필요함
+hwr_w0001_s0001_img000001,datasets/handwriting/raw/images/hwr_w0001_s0001_img000001.jpeg,KakaoTalk_Image_2026-08-15-20-12-32_001.jpeg,handwriting,diary-session-01-writer-01,analyzed_review_required,false,,,722,1024,0740ae7692fb8a08e65d32d00672a212d5d07051571fc33695ece5b5b73d6325,user_confirmed_training_allowed,격자 앞부분은 '오늘은 돈까스를 먹었다.'로 판독함. 나머지 행의 정답이 불확실해 전체 전사는 비워 둠. 같은 페이지의 고해상도 파생본과 동일 group 유지
+hwr_w0001_s0001_img000004,datasets/handwriting/raw/images/hwr_w0001_s0001_img000004.png,GNQoMNBbQAAqKBj.jpeg#left-page,handwriting,diary-session-01-writer-01,analyzed_review_required,false,,,1024,1511,7bbb32f6c18eb8a4c9d468216db08a2743960c4d3c7471defdfe8d12e9508171,user_confirmed_training_allowed,review_src0001의 왼쪽 페이지를 분리한 고해상도 파생본. hwr_w0001_s0001_img000001과 같은 작성자·내용이므로 같은 group과 정답을 사용해야 함
+hwr_w0002_s0001_img000002,datasets/handwriting/raw/images/hwr_w0002_s0001_img000002.jpeg,KakaoTalk_Image_2026-08-15-20-12-21_001.jpeg,handwriting,wall-session-01-writer-01,transcribed_pending_review,false,"ㅌ ㅔ ㄹ ㅏ ㅇ ㅡ ㅣ
+ㅊ ㅏ ㅇ ㅈ ㅗ ㅁ ㅜ ㄹ ㅇ ㅡ ㄴ
+ㅇ ㅏ ㅅ ㅡ ㅌ ㅔ ㄹ ㅜ ㅁ ㅇ ㅡ ㅣ
+ㅂ ㅕ ㄹ ㅇ ㅣ ㄷ ㅗ ㅣ ㅇ ㅓ ㅂ ㅣ ㅊ ㄴ ㅏ ㄱ ㅗ
+ㄱ ㅠ ㄴ ㅇ ㅕ ㄹ ㅇ ㅡ ㄹ ㄱ ㅏ ㄹ ㅗ ㅈ ㅣ ㄹ ㄹ ㅓ
+ㄷ ㅏ ㅇ ㅅ ㅣ ㄴ ㅇ ㅔ ㄱ ㅔ ㄹ ㅗ
+ㅎ ㅑ ㅇ ㅎ ㅐ ㄱ ㅏ ㄴ ㄷ ㅏ","테라의
+창조물은
+아스테룸의
+별이 되어 빛나고
+균열을 가로질러
+당신에게로
+향해간다",4000,3000,7bd58e78b653292c415763935c1bda54afcc571a8a37576732a4501f51a7e111,user_confirmed_training_allowed,분홍색 촬영본을 대응표로 전사함. 같은 작성자·같은 문자 내용인 다음 촬영본과 glyph_sequence 및 expected_ko를 동일하게 기록함
+hwr_w0002_s0001_img000003,datasets/handwriting/raw/images/hwr_w0002_s0001_img000003.jpeg,KakaoTalk_Image_2026-08-15-20-12-21_002.jpeg,handwriting,wall-session-01-writer-01,transcribed_pending_review,false,"ㅌ ㅔ ㄹ ㅏ ㅇ ㅡ ㅣ
+ㅊ ㅏ ㅇ ㅈ ㅗ ㅁ ㅜ ㄹ ㅇ ㅡ ㄴ
+ㅇ ㅏ ㅅ ㅡ ㅌ ㅔ ㄹ ㅜ ㅁ ㅇ ㅡ ㅣ
+ㅂ ㅕ ㄹ ㅇ ㅣ ㄷ ㅗ ㅣ ㅇ ㅓ ㅂ ㅣ ㅊ ㄴ ㅏ ㄱ ㅗ
+ㄱ ㅠ ㄴ ㅇ ㅕ ㄹ ㅇ ㅡ ㄹ ㄱ ㅏ ㄹ ㅗ ㅈ ㅣ ㄹ ㄹ ㅓ
+ㄷ ㅏ ㅇ ㅅ ㅣ ㄴ ㅇ ㅔ ㄱ ㅔ ㄹ ㅗ
+ㅎ ㅑ ㅇ ㅎ ㅐ ㄱ ㅏ ㄴ ㄷ ㅏ","테라의
+창조물은
+아스테룸의
+별이 되어 빛나고
+균열을 가로질러
+당신에게로
+향해간다",4000,3000,52631c0306e78d9de2975443d9a720957dcc4d6f5d9725f1ee394d053a939f3f,user_confirmed_training_allowed,금색 촬영본. 사용자가 두 이미지의 문자가 동일하다고 확인하여 이전 촬영본과 같은 정답·group을 적용함
+hwr_w0003_s0001_img000005,datasets/handwriting/raw/images/hwr_w0003_s0001_img000005.png,GNQoMNBbQAAqKBj.jpeg#right-page,handwriting,diary-session-01-writer-02,review_required,false,,,1024,1511,271ebb07c16a3ccf072e1392bb253003a6dbf8c08e2bb809bd92ed6097054f34,user_confirmed_training_allowed,review_src0001의 오른쪽 페이지를 무손실 PNG로 분리함. 왼쪽과 다른 작성자로 확인됐으며 격자 행별 전사가 필요함
+hwr_w0004_s0001_img000006,datasets/handwriting/raw/images/hwr_w0004_s0001_img000006.png,KakaoTalk_Image_2026-08-15-20-12-33_003.jpeg#left-page,handwriting,diary-session-02-writer-01,review_required,false,,,1024,1453,376904c5d11c6315ea5e1ef2835f7c98ab122d279132196fe89956ff9f5a0d6c,user_confirmed_training_allowed,review_src0002의 왼쪽 페이지를 무손실 PNG로 분리함. 오른쪽과 다른 작성자로 확인됨
+hwr_w0005_s0001_img000007,datasets/handwriting/raw/images/hwr_w0005_s0001_img000007.png,KakaoTalk_Image_2026-08-15-20-12-33_003.jpeg#right-page,handwriting,diary-session-02-writer-02,review_required,false,,,1024,1453,27364b0fbc74267c0d0b7eb4d7dcd74942cbc6005ca9536833d59ef5b7ca8a67,user_confirmed_training_allowed,review_src0002의 오른쪽 페이지를 무손실 PNG로 분리함. 왼쪽과 다른 작성자로 확인됨
+hwr_w0006_s0001_img000008,datasets/handwriting/raw/images/hwr_w0006_s0001_img000008.png,KakaoTalk_Image_2026-08-15-20-12-33_004.jpeg#right-page,handwriting,diary-session-03-writer-01,review_required,false,,,1024,1439,0c346a11540a7671a16fa47a237c1240644932f579fdf633c3cc94d799d8b791,user_confirmed_training_allowed,혼합 원본의 오른쪽 손글씨 페이지를 무손실 PNG로 분리함. 작성자별 group을 독립 부여했으며 격자 행별 전사가 필요함
+review_src0001_img000001,datasets/review/raw/images/review_multiwriter_src0001_img000001.jpeg,GNQoMNBbQAAqKBj.jpeg,review,diary-session-01-multiwriter,split_completed,false,,,2048,1511,04340a3e5e4fcde872f8a9e5007aa57d5036e188cbedc02839da866f5f0ee183,user_confirmed_training_allowed,"원본 보존. 왼쪽은 hwr_w0001_s0001_img000004, 오른쪽은 hwr_w0003_s0001_img000005로 분리함"
+review_src0002_img000002,datasets/review/raw/images/review_multiwriter_src0002_img000002.jpeg,KakaoTalk_Image_2026-08-15-20-12-33_003.jpeg,review,diary-session-02-multiwriter,split_completed,false,,,2048,1453,6cede5e8a2b66a4a427cf051f20b663d531edde364e2f90a787b5f54bd39b9c1,user_confirmed_training_allowed,"원본 보존. 왼쪽은 hwr_w0004_s0001_img000006, 오른쪽은 hwr_w0005_s0001_img000007로 분리함"
+review_src0003_img000003,datasets/review/raw/images/review_mixed_src0003_img000003.jpeg,KakaoTalk_Image_2026-08-15-20-12-33_004.jpeg,review,diary-session-03-mixed,split_completed,false,,,2048,1439,6dceec6711af30a7d4af310ee761a998ea0750f46cd6021106482ba4111b1fc7,user_confirmed_training_allowed,"원본 보존. 왼쪽 인쇄 페이지는 prt_src0008_img000008, 오른쪽 손글씨 페이지는 hwr_w0006_s0001_img000008로 분리함"
+ref_mapping_0001,references/mapping/mapping-handwritten-v1.jpg,GNSW-UCa4AAcVif.jpg,reference,mapping-reference-01,reference_only,false,,,849,1200,a6b47c9b74b3517039d488797e5dbcb4422b98e822291e6145237ae5657a4e7c,user_confirmed_training_allowed,사용자가 손글씨 참고용 문자 대응표라고 확인함. 문장 OCR 학습 sample이 아니라 판독 보조 자료로만 사용
+ref_mapping_0002,references/mapping/mapping-printed-v1.png,codex-clipboard-3b1a8fa2-c8b0-4f5e-971e-b280b4a691a9.png,reference,mapping-reference-02,reference_only,false,,,1008,165,beece6678f104909bb2726fc1ac067d1677884572659e5567903500bdd7520b6,user_confirmed_training_allowed,최종 아스테룸어·한글 대응표. 정답 판독 기준이며 학습 sample에는 포함하지 않음

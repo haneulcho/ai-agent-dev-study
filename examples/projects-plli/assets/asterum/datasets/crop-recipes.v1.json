@@ -1,0 +1,44 @@
+{
+  "version": "1.0.0",
+  "jobs": [
+    {
+      "source": "assets/asterum/datasets/review/raw/images/review_multiwriter_src0001_img000001.jpeg",
+      "targets": [
+        {
+          "output": "assets/asterum/datasets/handwriting/raw/images/hwr_w0001_s0001_img000004.png",
+          "box": [0.0, 0.0, 0.5, 1.0]
+        },
+        {
+          "output": "assets/asterum/datasets/handwriting/raw/images/hwr_w0003_s0001_img000005.png",
+          "box": [0.5, 0.0, 0.5, 1.0]
+        }
+      ]
+    },
+    {
+      "source": "assets/asterum/datasets/review/raw/images/review_multiwriter_src0002_img000002.jpeg",
+      "targets": [
+        {
+          "output": "assets/asterum/datasets/handwriting/raw/images/hwr_w0004_s0001_img000006.png",
+          "box": [0.0, 0.0, 0.5, 1.0]
+        },
+        {
+          "output": "assets/asterum/datasets/handwriting/raw/images/hwr_w0005_s0001_img000007.png",
+          "box": [0.5, 0.0, 0.5, 1.0]
+        }
+      ]
+    },
+    {
+      "source": "assets/asterum/datasets/review/raw/images/review_mixed_src0003_img000003.jpeg",
+      "targets": [
+        {
+          "output": "assets/asterum/datasets/printed/raw/images/prt_src0008_img000008.png",
+          "box": [0.0, 0.0, 0.5, 1.0]
+        },
+        {
+          "output": "assets/asterum/datasets/handwriting/raw/images/hwr_w0006_s0001_img000008.png",
+          "box": [0.5, 0.0, 0.5, 1.0]
+        }
+      ]
+    }
+  ]
+}

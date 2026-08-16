@@ -25,6 +25,7 @@ dependencies = [
 asterum-api = "asterum.api.main:run"
 asterum-asset-audit = "asterum.data.asset_audit:main"
 asterum-import-characters = "asterum.data.import_characters:main"
+asterum-prepare-images = "asterum.data.prepare_images:main"
 
 [build-system]
 requires = ["uv_build>=0.12.5,<0.13"]
@@ -71,6 +72,10 @@ python_version = "3.14"
 strict = true
 warn_unused_configs = true
 files = ["backend/src", "backend/tests"]
+
+[[tool.mypy.overrides]]
+module = ["pillow_heif"]
+ignore_missing_imports = true
 
 [tool.pytest.ini_options]
 testpaths = ["backend/tests"]

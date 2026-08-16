@@ -7,8 +7,9 @@ import shutil
 import tempfile
 from pathlib import Path
 
-from asterum.data.asset_audit import audit_assets, sha256_file
+from asterum.data.asset_audit import audit_assets
 from asterum.data.characters import CHARACTER_SPECS
+from asterum.data.files import sha256_file
 
 PROJECT_ROOT = Path(__file__).resolve().parents[4]
 DEFAULT_ASSET_ROOT = PROJECT_ROOT / "assets/asterum"

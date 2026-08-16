@@ -26,6 +26,7 @@ frontend/test-results/
 # Generated and private ML artifacts
 assets/asterum/datasets/**/images/
 assets/asterum/datasets/**/raw/
+assets/asterum/datasets/work/
 assets/asterum/models/**
 *.pt
 *.pth

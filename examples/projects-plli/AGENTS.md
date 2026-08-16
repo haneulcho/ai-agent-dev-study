@@ -133,7 +133,8 @@ API가 domain/data를 호출할 수 있지만 domain/data가 FastAPI를 import�
 ## Skill 관리
 
 - 항상 적용되는 원칙은 이 문서에 두고 반복 실행되는 안정된 절차만 skill로 만든다.
-- 현재 skill은 SVG import와 매핑 검증을 담당하는 `$asterum-asset-audit` 하나다.
+- `$asterum-asset-audit`은 SVG import와 매핑 검증을 담당한다.
+- `$asterum-prepare-dataset`은 실제 이미지의 page crop, 전처리와 Git 제외 확인을 담당한다.
 - dataset 생성, OCR 평가, 배포는 실제 script와 중단 조건이 확정된 뒤 각각 별도 skill로 만든다.
 - skill은 프로젝트에 의존하므로 `.agents/skills` 아래에서 관리한다.
 

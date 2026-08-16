@@ -6,11 +6,38 @@
 
 ## 강의 시작용 체크포인트
 
-현재 브랜치는 강의에서 나머지 기능을 단계별로 구현하기 위한 시작점이다. 개발환경, 기본 자산, 매핑·문법, 검증 CLI와 문장 sample CSV 양식까지만 제공한다. dataset validator, 합성 이미지 생성, OCR, API와 React UI는 강의 시간에 구현한다.
+현재 브랜치는 강의에서 나머지 기능을 단계별로 구현하기 위한 시작점이다. 개발환경, 기본 자산, 매핑·문법, 검증 CLI, 실제 이미지 crop·전처리 도구와 문장 sample CSV 양식까지 제공한다. dataset validator, 합성 이미지 생성, OCR, API와 React UI는 강의 시간에 구현한다.
 
 - [문장 이미지·정답 CSV 템플릿](assets/asterum/datasets/templates/sentence-samples.template.csv)
 - 예시 행의 `example_` 값은 실제 이미지 정보로 교체한다.
 - CSV 컬럼명은 유지하고 실제 sample을 행으로 추가한다.
+
+## 실제 이미지 반입 현황
+
+[sample-inventory.csv](assets/asterum/datasets/sample-inventory.csv)는 전달받은 원본의 반입·검수 대장이다. 학습 manifest인 `labels.json`과 역할이 다르며, 정답이 확정되지 않은 자료도 원본 파일명, 분류, 해상도, SHA-256과 후속 조치를 잃지 않고 관리한다.
+
+전달받은 원본은 그대로 보존하고, 여러 페이지가 섞인 원본은 페이지별 파생 PNG를 추가했다.
+
+- `assets/asterum/datasets/printed/raw/images`: 원본 7장과 혼합 원본에서 분할한 인쇄 페이지 1장
+- `assets/asterum/datasets/handwriting/raw/images`: 원본 3장과 작성자·페이지별로 분할한 손글씨 페이지 5장
+- `assets/asterum/datasets/review/raw/images`: 분할 전 원본 3장
+- `assets/asterum/references/mapping`: 문장 학습 sample이 아닌 문자 대응표 2장
+
+`review`와 `reference`는 반입 대장의 분류값일 뿐 `labels.json`의 `input_style` 값이 아니다. 분할 전 원본은 추적을 위해 `review`에 남겨 두고, 페이지별 파생본은 실제 유형에 따라 `printed` 또는 `handwriting`으로 등록한다. 작성자가 다르면 `source_group`을 분리하고, 같은 작성자·촬영 자료는 동일한 group을 유지한다.
+
+퀴즈 이미지는 `ㄱ ㅣ ㄷ ㅏ ㄹ ㅣ ㄹ ㄱ ㅔ → 기다릴게`로 정답 확인을 마쳤다. 같은 작성자의 벽면 사진 2장은 서로 다른 이미지지만 동일한 문장을 담고 있어 같은 `glyph_sequence`와 `expected_ko`를 기록했다. 나머지 자동 전사는 `transcribed_pending_review`, 일부만 읽었거나 전체 정답이 필요한 자료는 `analyzed_review_required` 또는 `review_required` 상태로 관리한다.
+
+현재 조합기는 겹자음을 표현하는 연속 초성 token을 처리하지 않는다. 예를 들어 `뜻`의 입력에는 `ㄷ ㄷ ㅡ ㅅ`이 필요하므로, 해당 문법을 구현하기 전까지 전사 결과와 조합기 결과를 별도로 검수한다.
+
+사용자가 제공한 이미지의 OCR 학습 사용을 허용했으므로 모든 행의 `license_id`는 `user_confirmed_training_allowed`다. 정답까지 확정된 퀴즈 sample만 `training_ready=true`이고, 나머지는 정답 검수가 끝날 때까지 `false`로 유지한다. 원본 이미지의 공개 저장소 포함과 외부 재배포는 별도 범위이며, `raw/images`는 Git ignore 대상인 로컬 실습 자료로 유지한다.
+
+권장 검수 순서는 다음과 같다.
+
+1. 여러 페이지와 여러 행이 포함된 이미지를 문장 또는 행 단위로 crop한다.
+2. 대응표를 보고 읽기 순서대로 `glyph_sequence`를 기록한다.
+3. 조합기로 `expected_ko`를 계산하고 사람이 원문 정답과 대조한다.
+4. 동일 작성자·촬영 session은 하나의 `source_group`으로 유지한다.
+5. 권리와 정답이 확인된 sample만 `labels.json`에 등록한다.
 
 ## 기획 자료
 
@@ -70,6 +97,31 @@ uv run asterum-asset-audit
 uv run pytest
 ```
 
+### 이미지 crop과 전처리
+
+현재 좌우 페이지 분할 recipe를 원본 변경 없이 검증한다.
+
+recipe가 참조하는 원본 이미지는 Git에 포함되지 않으므로 먼저 반입 대장과 같은 `raw/images` 경로에 로컬로 준비해야 한다.
+
+```bash
+uv run asterum-prepare-images crop \
+  --recipe assets/asterum/datasets/crop-recipes.v1.json \
+  --dry-run
+```
+
+새 환경에서 파생 이미지를 생성할 때는 `--dry-run`을 제거한다. 기존 출력이 있으면 기본적으로 중단하며, 검토 없이 `--overwrite`를 사용하지 않는다.
+
+OCR 비교용 전처리는 `grayscale`, `contrast`, `binary` 중 하나를 선택한다.
+
+```bash
+uv run asterum-prepare-images preprocess \
+  --input assets/asterum/datasets/printed/raw/images/prt_src0002_img000002.jpeg \
+  --output-dir assets/asterum/datasets/work/preprocessed \
+  --variant contrast
+```
+
+입력으로 파일 여러 개나 디렉터리를 지정할 수 있고 `--max-side`로 최대 변 길이를 조절한다. crop과 전처리 결과는 Git ignore 대상이다.
+
 개발 API 실행:
 
 ```bash
@@ -86,7 +138,9 @@ uv run asterum-api
 
 ```text
 examples/projects-plli/
-├── .agents/skills/asterum-asset-audit/
+├── .agents/skills/
+│   ├── asterum-asset-audit/
+│   └── asterum-prepare-dataset/
 ├── assets/asterum/
 │   ├── characters/svg/       # 검토된 기본 문자 28개
 │   ├── mapping/              # 문자-한글 자모 매핑과 checksum
@@ -95,8 +149,9 @@ examples/projects-plli/
 ├── backend/
 │   ├── src/asterum/
 │   │   ├── api/              # FastAPI 진입점
-│   │   ├── data/             # 자산 import와 검증
-│   │   └── domain/           # 한글 자모 조합
+│   │   ├── data/             # 자산 import·검증과 이미지 준비 CLI
+│   │   ├── domain/           # 한글 자모 조합
+│   │   └── ocr/              # 공용 crop·전처리 함수
 │   └── tests/
 ├── docs/
 ├── AGENTS.md
@@ -104,7 +159,7 @@ examples/projects-plli/
 └── uv.lock
 ```
 
-`frontend`, `backend/src/asterum/ocr`, `infra`는 해당 개발 단계가 시작될 때 만든다. 비어 있는 예정 폴더를 미리 만들지 않는다.
+`frontend`와 `infra`는 해당 개발 단계가 시작될 때 만든다. 현재 `backend/src/asterum/ocr`에는 모델이 아니라 강의 준비용 공용 이미지 처리 함수만 있다.
 
 ## 처리 흐름
 
@@ -163,8 +218,8 @@ uv run asterum-asset-audit
 
 ## 개발 단계
 
-1. 완료: Python/uv 환경, 28개 SVG, 매핑·자산 검증, 한글 조합기, health API, sample CSV
-2. 강의 실습: 실제 문장 이미지 연결, dataset manifest validator, 합성 인쇄 데이터 생성
+1. 완료: Python/uv 환경, 28개 SVG, 매핑·자산 검증, 한글 조합기, health API, sample CSV, 이미지 crop·전처리 CLI
+2. 강의 실습: 검수된 문장 정답 연결, dataset manifest validator, 합성 인쇄 데이터 생성
 3. OpenCV 문자 분리 baseline과 28-class 분류기 학습·평가
 4. 동기식 `POST /api/v1/interpret`와 개인정보 삭제 테스트
 5. React 데스크톱·모바일 UI와 confidence 수정 흐름
