@@ -1,3 +1,5 @@
+"""아스테룸 SVG와 문자 매핑이 학습 기준을 만족하는지 검사한다."""
+
 from __future__ import annotations
 
 import argparse
@@ -14,6 +16,8 @@ from asterum.domain.mapping import load_mapping
 
 
 class AuditIssue(BaseModel):
+    """자산 검증에서 발견한 문제 한 건."""
+
     model_config = ConfigDict(extra="forbid")
 
     code: str
@@ -22,6 +26,8 @@ class AuditIssue(BaseModel):
 
 
 class AssetAuditReport(BaseModel):
+    """검사한 매핑 정보와 모든 문제를 담는 최종 보고서."""
+
     model_config = ConfigDict(extra="forbid")
 
     mapping_path: str
@@ -35,10 +41,14 @@ class AssetAuditReport(BaseModel):
 
 
 def _local_name(tag: str) -> str:
+    """XML namespace가 붙은 태그에서 실제 태그 이름만 꺼낸다."""
+
     return tag.rsplit("}", maxsplit=1)[-1]
 
 
 def audit_svg(path: Path) -> list[AuditIssue]:
+    """SVG 한 파일의 기본 구조와 외부 실행 요소 포함 여부를 검사한다."""
+
     issues: list[AuditIssue] = []
     try:
         root = ElementTree.parse(path).getroot()
@@ -52,6 +62,7 @@ def audit_svg(path: Path) -> list[AuditIssue]:
             AuditIssue(code="INVALID_SVG_ROOT", message="root element must be svg", path=str(path))
         )
 
+    # viewBox가 있어야 화면 크기와 관계없이 같은 비율로 글리프를 그릴 수 있다.
     view_box = root.attrib.get("viewBox")
     if view_box is None:
         issues.append(
@@ -65,6 +76,7 @@ def audit_svg(path: Path) -> list[AuditIssue]:
         except ValueError as error:
             issues.append(AuditIssue(code="INVALID_VIEWBOX", message=str(error), path=str(path)))
 
+    # 학습용 SVG에는 실제 윤곽 path가 있어야 하고 실행 가능한 요소는 없어야 한다.
     element_names = {_local_name(element.tag) for element in root.iter()}
     if "path" not in element_names:
         issues.append(
@@ -80,6 +92,7 @@ def audit_svg(path: Path) -> list[AuditIssue]:
                 )
             )
 
+    # 다른 서버나 로컬 파일을 참조하면 결과가 재현되지 않으므로 내부 참조만 허용한다.
     for element in root.iter():
         for attribute_name, value in element.attrib.items():
             if _local_name(attribute_name) == "href" and value and not value.startswith("#"):
@@ -94,6 +107,8 @@ def audit_svg(path: Path) -> list[AuditIssue]:
 
 
 def audit_assets(mapping_path: Path) -> AssetAuditReport:
+    """매핑 전체와 연결된 28개 SVG의 경로·내용·checksum을 검사한다."""
+
     report = AssetAuditReport(mapping_path=str(mapping_path))
     try:
         mapping = load_mapping(mapping_path)
@@ -103,6 +118,7 @@ def audit_assets(mapping_path: Path) -> AssetAuditReport:
         )
         return report
 
+    # 먼저 매핑에 필수 자모 28개가 빠짐없이 들어 있는지 확인한다.
     report.mapping_version = mapping.version
     report.character_count = len(mapping.characters)
     actual_jamo = {character.ko_jamo for character in mapping.characters}
@@ -113,6 +129,7 @@ def audit_assets(mapping_path: Path) -> AssetAuditReport:
     if unexpected_jamo:
         report.issues.append(AuditIssue(code="UNEXPECTED_JAMO", message=", ".join(unexpected_jamo)))
 
+    # 각 매핑 항목이 안전한 경로의 실제 SVG를 가리키고 내용도 승인본과 같은지 확인한다.
     asset_root = mapping_path.parent.parent.resolve()
     seen_hashes: dict[str, Path] = {}
     for character in mapping.characters:

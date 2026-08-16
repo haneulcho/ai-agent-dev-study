@@ -1,3 +1,5 @@
+"""프로젝트가 공식적으로 지원하는 아스테룸 문자 28개의 기준 목록."""
+
 from __future__ import annotations
 
 from dataclasses import dataclass
@@ -6,11 +8,14 @@ from typing import Literal
 
 @dataclass(frozen=True, slots=True)
 class CharacterSpec:
+    """안정적인 문자 ID와 대응 한글 자모의 최소 정보."""
+
     glyph_id: str
     ko_jamo: str
     kind: Literal["consonant", "vowel"]
 
 
+# 순서는 매핑을 새로 만들 때도 일정하게 유지해 사람이 diff를 읽기 쉽게 한다.
 CHARACTER_SPECS = (
     CharacterSpec("ast_giyeok", "ㄱ", "consonant"),
     CharacterSpec("ast_nieun", "ㄴ", "consonant"),

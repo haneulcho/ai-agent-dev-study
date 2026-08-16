@@ -1,3 +1,5 @@
+"""아스테룸 API 애플리케이션과 현재 제공하는 상태 확인 endpoint."""
+
 from __future__ import annotations
 
 import os
@@ -27,6 +29,8 @@ class ReadinessResponse(HealthResponse):
 
 
 def resolve_mapping_path() -> Path:
+    """환경변수에 매핑 경로가 있으면 사용하고, 없으면 프로젝트 기본값을 반환한다."""
+
     configured_path = os.getenv("ASTERUM_MAPPING_PATH")
     if configured_path is None:
         return DEFAULT_MAPPING_PATH
@@ -36,10 +40,13 @@ def resolve_mapping_path() -> Path:
 
 
 def create_app(mapping_path: Path | None = None) -> FastAPI:
+    """테스트와 실행 환경에서 원하는 매핑 파일을 주입할 수 있는 FastAPI 앱을 만든다."""
+
     selected_mapping_path = mapping_path or resolve_mapping_path()
 
     @asynccontextmanager
     async def lifespan(app: FastAPI) -> AsyncIterator[None]:
+        # 서버 시작 시 한 번만 자산을 검사해 모든 요청마다 SVG를 다시 읽지 않게 한다.
         app.state.asset_audit = audit_assets(selected_mapping_path)
         yield
 
@@ -59,6 +66,7 @@ def create_app(mapping_path: Path | None = None) -> FastAPI:
         responses={status.HTTP_503_SERVICE_UNAVAILABLE: {"model": ReadinessResponse}},
     )
     def ready(request: Request) -> ReadinessResponse | JSONResponse:
+        # 매핑이나 SVG가 잘못되면 트래픽을 받지 않도록 503으로 준비 실패를 알린다.
         report: AssetAuditReport = request.app.state.asset_audit
         payload = ReadinessResponse(
             status="ready" if report.ok else "not_ready",
@@ -80,4 +88,6 @@ app = create_app()
 
 
 def run() -> None:
+    """``uv run asterum-api`` 명령이 호출하는 로컬 개발 서버 진입점."""
+
     uvicorn.run("asterum.api.main:app", host="127.0.0.1", port=8000, reload=False)
